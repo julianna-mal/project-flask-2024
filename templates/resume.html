@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Резюме - Моє портфоліо{% endblock %}
+{% block content %}
+<div class="row"><div class="col-md-4 text-center"><img src="{{ url_for('static', filename='images/logo.png') }}" alt="Фото" class="img-fluid rounded-circle mb-3" width="150"></div><div class="col-md-8"><h1>Моє резюме</h1><p class="text-muted">Junior Python Developer</p></div></div>
+<section class="mt-4"><h2>Про себе</h2><p>Юліанна  19  London .</p></section>
+<section class="mt-4"><h2>Освіта</h2><p>Кну  Інженерія програмного забезпечення.</p></section>
+<section class="mt-4"><h2>Навички</h2><ul><li>Python, Flask</li><li>HTML, CSS, Bootstrap</li></ul></section>
+{% endblock %}
