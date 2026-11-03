@@ -10,3 +10,9 @@ packaging==26.3
 python-dotenv==1.2.1
 Werkzeug==3.1.9
 zipp==3.23.1
+
+Flask-WTF==1.2.2
+WTForms==3.2.1
+email-validator==2.3.0
+dnspython==2.7.0
+idna==3.20
