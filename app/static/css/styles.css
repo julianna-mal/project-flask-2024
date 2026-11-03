@@ -1,1 +1,34 @@
 body { background-color: #fce4ec; }
+/* Теми профілю */
+.profile-page.light {
+    background-color: #ffffff;
+    color: #212529;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.profile-page.dark {
+    background-color: #212529;
+    color: #f8f9fa;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Таблиця cookies у темній темі */
+.profile-page.dark .table {
+    color: #f8f9fa;
+    --bs-table-color: #f8f9fa;
+    --bs-table-bg: #212529;
+    --bs-table-border-color: #6c757d;
+}
+
+/* Поля введення у темній темі */
+.profile-page.dark .form-control {
+    background-color: #343a40;
+    color: #f8f9fa;
+    border-color: #6c757d;
+}
+
+.profile-page.dark .form-control::placeholder {
+    color: #ced4da;
+}
