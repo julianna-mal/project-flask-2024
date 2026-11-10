@@ -3,7 +3,9 @@ import logging
 import os
 
 from flask import render_template, request, redirect, url_for, flash
-from . import app
+from flask import Blueprint
+
+main_bp = Blueprint("main", __name__)
 from .forms import ContactForm
 
 
@@ -18,14 +20,13 @@ if not logger.handlers:
     ))
     logger.addHandler(handler)
 
-
-@app.route('/')
-@app.route('/resume')
+@main_bp.route('/')
+@main_bp.route('/resume')
 def resume():
     return render_template('resume.html')
 
 
-@app.route('/contacts', methods=['GET', 'POST'])
+@main_bp.route('/contacts', methods=['GET', 'POST'])
 def contacts():
     form = ContactForm()
 

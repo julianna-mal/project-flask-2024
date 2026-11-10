@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Усі публікації</h1>
+
+    <a href="{{ url_for('posts.create_post') }}" class="btn btn-primary mb-3">
+        Додати публікацію
+    </a>
+
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p>{{ post.content[:100] }}...</p>
+                    <p>Категорія: {{ post.category }}</p>
+                    <p>Автор: {{ post.author }}</p>
+                    <p>Дата: {{ post.posted.strftime('%d.%m.%Y %H:%M') }}</p>
+
+                    <a href="{{ url_for('posts.detail_post', post_id=post.id) }}"
+                       class="btn btn-info">Детальніше</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p>Публікацій поки немає.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
