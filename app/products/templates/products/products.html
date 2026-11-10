@@ -1,12 +1,53 @@
 {% extends "base.html" %}
+
 {% block title %}Список товарів{% endblock %}
+
 {% block content %}
-<h2>Наші товари</h2>
-<ul>
-    {% for p in products %}
-        <li>
-            <a href="{{ url_for('products.product_detail', product_id=p.id) }}">{{ p.name }}</a> - {{ p.price }}$
-        </li>
-    {% endfor %}
-</ul>
+
+<div class="container">
+    <h2>Наші товари</h2>
+
+    <a href="{{ url_for('products.product_add') }}" class="btn btn-success mb-3">
+        Додати товар
+    </a>
+
+    {% if products %}
+        <div class="row">
+            {% for p in products %}
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+
+                        {% if p.image %}
+                            <img src="{{ url_for('products.static', filename=p.image) }}"
+                                 class="card-img-top"
+                                 alt="{{ p.name }}"
+                                 style="height: 200px; object-fit: cover;">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ p.name }}</h5>
+
+                            <p class="card-text">
+                                Ціна: {{ p.price }} грн
+                            </p>
+
+                            <p class="card-text">
+                                Кількість: {{ p.quantity }}
+                            </p>
+
+                            <a href="{{ url_for('products.product_detail', product_id=p.id) }}"
+                               class="btn btn-primary">
+                                Детальніше
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Товарів поки немає.</p>
+    {% endif %}
+</div>
+
 {% endblock %}
